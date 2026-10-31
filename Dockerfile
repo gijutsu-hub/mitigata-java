@@ -14,5 +14,8 @@ WORKDIR /app
 COPY --from=build /build/target/vulnbank.jar /app/vulnbank.jar
 # seed the reports dir used by the path-traversal module
 COPY reports /app/reports
+# A06 Vulnerable & Outdated Components: bundle an OUTDATED busybox (known CVEs) for SBOM practice.
+COPY --from=busybox:1.30.1 /bin/busybox /usr/local/bin/busybox-legacy
+
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app/vulnbank.jar"]
