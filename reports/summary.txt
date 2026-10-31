@@ -1,0 +1,2 @@
+VulnBank daily report: everything nominal.
+(Try ?file=../../etc/passwd to escape this directory.)
